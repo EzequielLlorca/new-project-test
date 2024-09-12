@@ -5,29 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recti-Mundo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Imagenes/logo.ico.webp" type="image/x-icon">
 </head>
 <body>
-    <div class="intro">
-        <p>Más información: +54 9 351 521-4871 / E-mail: recti-mundo@hotmail.com</p>
-    </div>
+    <section class="section_conteiner-intro">
+        <div>
+            <img class="logo_RM" src="Imagenes/logo_RM.webp" alt="logo-rm">
+        </div>
+        <div class="intro">
+            <p>Más información: +54 9 351 521-4871 / E-mail: recti-mundo@hotmail.com</p>
+        </div>
+    </section>
     <header class="header">
         <div>
-            <h1>Rectificaciones, Recti-Mundo</h1>
-        </div>
-        <div>  
+            <h1>Rectificaciones, Recti-Mundo</h1>  
             <h2>"Experiencia y calidad en cada trabajo"</h2>
+        </div>
+        <div>
+            <img  class="header__img" src="Imagenes/logo_RM.webp" alt="logo_rm">
         </div> 
     </header>
     <div class="div_bar">
+        <input type="checkbox" class="bar__checkbox" id="open_menu">
+        <label for="open_menu" class="bar__open-nav-button"  role="button">=</label>
+        <div class="bar__conteiner-logo">
+            <img class="bar__logo" src="Imagenes/logo-2.png.webp" alt="">
+        </div>
         <nav class="navbar">
-            <ul>
-                <li><a href="">Quienes somos</a></li>
-                <li><a href="">Servicios</a></li>
-                <li><a href="">Contacto</a></li>
+            <ul class="navbar__list">
+                <li class="navbar__items"><a href="#who-we-are">Quienes somos</a></li>
+                <li class="navbar__items"><a href="#service">Servicios</a></li>
+                <li class="navbar__items"><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
     </div>
-    <div class="conteiner">
+    <div class="conteiner" id="who-we-are">
         <div class="overlay"></div>
             <main class="conteiner__main">
                 <div>
@@ -36,7 +48,8 @@
                 </div>
             </main>
         </div>
-        <section class="conteiner_service">
+    </div>
+        <section class="conteiner_service" id="service">
             <div>
                 <h2>Servicios</h2>
             </div>
@@ -47,25 +60,27 @@
                     <div class="grid__items3"></div>
                 </div>
             </div>
-            <ul>
-                <li>
-                    <p>Recrificacion de plano</p>
-                </li>
-                <li>
-                    <p>Rectificacion de asientos</p>
-                </li>
-                <li>
-                    <p>Limpieza</p>
-                </li>
-                <li>
-                    <p>Regulacion de luz de valvulas</p>
-                </li>
-                <li>
-                    <p>Presupuesto sin cargo</p>
-                </li>
-            </ul>
+            <div>
+                <ul class="service__ul">
+                    <li class="service__li">
+                        <p>Recrificacion de plano</p>
+                    </li>
+                    <li class="service__li">
+                        <p>Rectificacion de asientos</p>
+                    </li>
+                    <li class="service__li">
+                        <p>Limpieza</p>
+                    </li>
+                    <li class="service__li">
+                        <p>Regulacion de luz de valvulas</p>
+                    </li>
+                    <li class="service__li">
+                        <p>Presupuesto sin cargo</p>
+                    </li>
+                </ul>
+            </div>
         </section>
-    <footer class="footer_conteiner">
+    <footer class="footer_conteiner" id="contact">
         <div class="div_copyright">
             <p>RECTI-MUNDO  @copyrigth 2027</p>
         </div>
