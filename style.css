@@ -25,10 +25,11 @@ body, section, header, div, main,footer, ul, nav, a, li, label, p{
     border-bottom: 1px solid #100b55;
     background-color: #e2eaff;
     align-items: center;
-
 }
 
+
 .logo_RM{
+    display: block;
     margin-right: 20px;
     height: 50px;
     border-radius: 30%;
@@ -36,11 +37,15 @@ body, section, header, div, main,footer, ul, nav, a, li, label, p{
 
 .intro p{
     padding: 6px;
-    color: #100b55;
+    color: #e2eaff;
     border: 1px solid #100b55;
     border-radius: 20px;
+    width: 100%;
+    animation-name: llenar-barra;
+    animation-duration: 6s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
 }
-
 
 /* HEADER */
 
@@ -53,11 +58,18 @@ body, section, header, div, main,footer, ul, nav, a, li, label, p{
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    animation: aparecer both;
+    animation-duration: 4s;
+
 }
 
 .header h2{
-    color: #100b55;
+    color: #e2eaff;
     margin-left: 4em;
+    animation-name: h2-header;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-fill-mode: both;
 }
 
 
@@ -74,7 +86,7 @@ h1{
 /* BARRA DE NAVEGACION */
 
 .div_bar{
-    background-color: #ffff;
+    background-color: #e2eaff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -151,12 +163,23 @@ h1{
 
 @container div_bar (min-width: 600px) {
 .navbar {
+    background-color: #e2eaff;
+    border-radius: 30px;
     display: block;
     position: static;
     height: auto;
     justify-content: space-between;
 
 }
+
+.navbar__items a:hover{
+    transition: outline 0.5s linear;
+}
+
+.bar__logo{
+    border-radius: 30px;
+}
+
 .navbar__list{
     flex-direction: row;
     height: auto;
@@ -176,7 +199,7 @@ h1{
 .conteiner{
     max-width: 100vw;
     min-height: 100vh;
-    background-image: url(Imagenes/rectificando-asiento.jpg);
+    background-image: linear-gradient(#0009, #0009), url(Imagenes/rectificando-asiento.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -184,23 +207,22 @@ h1{
     justify-content: center;
 }
 
-.overlay{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    opacity: 0.5;
-}
-
 .conteiner__main{
+    view-timeline: --cajita block;
     width: 60%;
     color: #ededed;
-    z-index: 3;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    animation-name: main;
+    animation-timeline: --cajita;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-range-start: cover 20%;
+    animation-range-end: contain 70%;
 }
+
 
 .conteiner__main h2{
     font-size: 30px;
@@ -210,77 +232,62 @@ h1{
     font-size: 20px;
 }
 
+
 /* SECTION */
 
-.conteiner_service{
-    max-width: 100vw;
-    min-height: 100vh;
+.section_service{
+    background-color: #101632;
+    color: #e2eaff;
+    min-height: 90vh;
     display: flex;
-    flex-direction: row;
-    justify-content:space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
     container-type: inline-size;
-    container-name: container_service;
+    container-name: section_service;
 }
 
-
-.conteiner_service h2{
-    color: #100b55;
-    font-size: 30px;
-    padding-left: 50px;
-    font-weight: 600;
-}
-
-.service__ul{
-    color: #100b55;
-    padding-right: 50px;
-}
-
-.service__li  p{
-    padding: 10px;
-    font-size: 15px;
-}
-
-.grid{
+.service__container{
     display: grid;
-    grid-template-columns: 100px 100px 100px;
-    grid-template-rows: 100px 100px;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    max-width: 1300px;
+    margin: auto;
+    width: 100%;
+    gap: 10px;
+    padding: 20px;
+    min-height: 80vh;
 }
 
-.grid div{
-    background-color: #ededed;
-    min-width: 100px;
-    min-height: 100px;
-}
-
-.grid__items1{
-    background-image: url(Imagenes/arbol-de-levas.jpg);
-    background-size: cover;
-    background-position: bottom;
-    grid-column: 1/span 2;
-}
-
-.grid__items2{
-    background-image: url(Imagenes/valvula.jpg);
-    background-size: cover;
-    background-position: bottom;
-}
-
-.grid__items3{
-    background-image: url(Imagenes/Tapa-de-colindro.jpg);
+.service_item{
+    background-image: linear-gradient(#0009,#0009) ,url(Imagenes/Tapa-de-colindro.jpg);
     background-size: cover;
     background-position: center;
-    grid-column: 1/span 4;
+    animation: aparecer both;
+    animation-timeline: view();
+    animation-range: cover 10% cover 50%;
 }
 
-/* service queries */
+/* ----------section servire queries---------- */
 
-@container conteiner_service (min-width: 600px) {
-.conteiner_service{
-    flex-direction: column;
-    justify-content:center;
-}    
+@container section_service (min-width: 600px) {
+
+    .service__container{
+        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
+        
+    }
+
+    .service__title{
+        font-size: 40px;
+    }
+
+    .service_item:first-child{
+        grid-column: span 2;
+    }
+
+    .service_item:nth-child(5){
+        grid-column: span 2;
+    }
 }
 
 /* footer */
@@ -309,6 +316,53 @@ h1{
     list-style: none;
 }
 
+
+/* -------ANIMACIONES-------- */
+
+@keyframes llenar-barra {
+    from {
+        color: #e2eaff;
+        border: 0px solid #100b55;
+        font-size: 10px;
+    }
+
+    to {
+        color: #100b55;
+        border: 3px solid #100b55;
+        font-size: 20px;
+    }
+}
+
+@keyframes h2-header {
+    from{
+        color: #e2eaff;
+        margin-left: 0;
+    }
+
+    to{
+        color: #100b55;
+        margin-left: 4em;
+    }
+}
+
+@keyframes main {
+    from{
+        color: #000;
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes aparecer {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 
 
 
