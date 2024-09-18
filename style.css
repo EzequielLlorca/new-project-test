@@ -1,105 +1,218 @@
-body{
-    margin: 0;
-    font-family: sans-serif;
-    background-color: #000;
-}
-
-body, header,
-div, main,footer{
+* {
     box-sizing: border-box;
 }
 
-/* INTRO */
-.intro{
-    min-width: 100vw;
-    height: 40px;
-    padding: 30px;
-    background-color: #ededed;
+
+body {
+    font-family: sans-serif;
+    background-color: #e2eaff;
+    color: #101632;
+}
+
+body, section, header, div, main,footer, ul, nav, a, li, label, p{
     margin: 0;
-    text-align: center;
+    padding: 0;
+}
+
+/* INTRO */
+.section_conteiner-intro{
+    padding: 10px;
+    min-width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: 1px solid #100b55;
+    background-color: #e2eaff;
+    align-items: center;
+}
+
+
+.logo_RM{
+    display: block;
+    margin-right: 20px;
+    height: 50px;
+    border-radius: 30%;
+    
 }
 
 .intro p{
-    margin: 0;
+    padding: 6px;
+    color: #e2eaff;
+    border: 1px solid #100b55;
+    border-radius: 20px;
+    width: 100%;
+    animation-name: llenar-barra;
+    animation-duration: 6s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
 }
 
 /* HEADER */
 
 .header{
-    max-width: 100vw;
-    min-height: 100vh;
+    width: 100dvw;
+    height: 72dvh;
     opacity: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
+    animation: aparecer both;
+    animation-duration: 4s;
+
 }
 
 .header h2{
-    color: #ededed;
+    color: #e2eaff;
     margin-left: 4em;
+    animation-name: h2-header;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-fill-mode: both;
 }
 
 
 h1{
     font-size: 50px;
-    color: #ededed;
-   
+    color: #100b55;
+    font-weight: bold;
+}
+
+.header__img{
+    border-radius: 30px;
+    rotate: 0deg;
+    transition: rotate 0.6s;
+}
+
+.header__img:hover{
+    rotate: 360deg;
 }
 
 /* BARRA DE NAVEGACION */
 
 .div_bar{
+    background-color: #e2eaff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    container-name: div_bar;
+    container-type: inline-size;
+    position: relative;
+    z-index: 40;
     position: sticky;
     top: 0;
-    z-index: 100;
 }
+
+.bar__logo{
+    max-width: 100%;
+    width: 64px;
+    margin: 10px 20px;
+    z-index: 10;
+}
+
+.bar__open-nav-button{
+    color: #100b55;
+    font-size: 3rem;
+    font-weight: 600;
+    position: absolute;
+    right: 10px;
+    z-index: 10;
+}
+
+.bar__checkbox {
+    display: none;
+}
+
+.bar__checkbox:checked ~ .navbar{
+    display: flex;
+}
+
 
 .navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
 }
 
-.navbar ul{
-    width: 90%;
-    border: 1px solid black;
-    padding: 0;
-    margin: 0;
-    background-color: #ededed;
-    border-radius: 20px;
+.navbar__list{
     display: flex;
-    flex-direction: row;
-    justify-content:space-around;
+    flex-direction: column;
+    height: 40vh;
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+.navbar__items{
     list-style: none;
+    padding: 30px;
 }
 
-.navbar li{
-    padding: 20px;
-}
-
-.navbar a{
+.navbar__items a{
+    color: #100b55;
     text-decoration: none;
-    font-size: 20px;
-    font-style: italic;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 0 0 40px #000;
+}
+
+.navbar__items a:hover{
+    outline: 2px solid #100b55;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+/* barra de navegacion queries */
+
+@container div_bar (min-width: 600px) {
+.navbar {
+    background-color: #e2eaff;
+    border-radius: 30px;
+    display: block;
+    position: static;
+    height: auto;
+    justify-content: space-between;
 
 }
 
-.navbar a:hover{
-    padding: 5px;
-    color: #5559;
-    border-radius: 20px;
-    outline: 1px solid #555;
+.navbar__items a:hover{
+    transition: outline 0.5s linear;
+}
+
+.bar__logo{
+    border-radius: 30px;
+    rotate: 0deg;
+    transition: rotate 0.6s;
+}
+
+.bar__logo:hover{
+    rotate: 360deg;
+}
+
+.navbar__list{
+    flex-direction: row;
+    height: auto;
+    width: auto;
+    gap: 20px;
+    margin-right: 40px ;
+    
+}
+
+.bar__open-nav-button{
+    display: none;
+}
 }
 
 /* main */
 
 .conteiner{
-    min-width: 100%;
-    min-height: 400px;
-    
-    background-image: url(Imagenes/rectificando-asiento.jpg);
+    max-width: 100vw;
+    min-height: 100vh;
+    background-image: linear-gradient(#0009, #0009), url(Imagenes/rectificando-asiento.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -107,23 +220,22 @@ h1{
     justify-content: center;
 }
 
-.overlay{
-    position: absolute;
-    width: 100%;
-    height: 400px;
-    background-color: #000;
-    opacity: 0.5;
-}
-
 .conteiner__main{
+    view-timeline: --cajita block;
     width: 60%;
     color: #ededed;
-    z-index: 3;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    animation-name: main;
+    animation-timeline: --cajita;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-range-start: cover 20%;
+    animation-range-end: contain 70%;
 }
+
 
 .conteiner__main h2{
     font-size: 30px;
@@ -133,60 +245,63 @@ h1{
     font-size: 20px;
 }
 
+
 /* SECTION */
 
-.conteiner_service{
-    width: 100%;
-    height: 100vh;
+.section_service{
+    background-color: #101632;
+    color: #e2eaff;
+    min-height: 90vh;
     display: flex;
-    flex-direction: row;
-    justify-content:space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    container-type: inline-size;
+    container-name: section_service;
 }
 
-
-.conteiner_service h2{
-    color: #ededed;
-    font-size: 30px;
-    padding-left: 50px;
-}
-
-.conteiner_service ul{
-    color: #ededed;
-    padding-right: 50px;
-}
-
-.grid{
+.service__container{
     display: grid;
-    grid-template-columns: 100px 100px 100px;
-    grid-template-rows: 100px 100px;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    max-width: 1300px;
+    margin: auto;
+    width: 100%;
+    gap: 10px;
+    padding: 20px;
+    min-height: 80vh;
 }
 
-.grid div{
-    background-color: #ededed;
-    min-width: 100px;
-    min-height: 100px;
-}
-
-.grid__items1{
-    background-image: url(Imagenes/arbol-de-levas.jpg);
-    background-size: cover;
-    background-position: bottom;
-    grid-column: 1/span 2;
-}
-
-.grid__items2{
-    background-image: url(Imagenes/valvula.jpg);
-    background-size: cover;
-    background-position: bottom;
-}
-
-.grid__items3{
-    background-image: url(Imagenes/Tapa-de-colindro.jpg);
+.service_item{
+    background-image: linear-gradient(#0009,#0009) ,url(Imagenes/Tapa-de-colindro.jpg);
     background-size: cover;
     background-position: center;
-    grid-column: 1/span 4;
+    animation: aparecer both;
+    animation-timeline: view();
+    animation-range: cover 10% cover 50%;
+}
+
+/* ----------section servire queries---------- */
+
+@container section_service (min-width: 600px) {
+
+    .service__container{
+        grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
+        
+    }
+
+    .service__title{
+        font-size: 40px;
+        padding-top: 20px;
+    }
+
+    .service_item:first-child{
+        grid-column: span 2;
+    }
+
+    .service_item:nth-child(5){
+        grid-column: span 2;
+    }
 }
 
 /* footer */
@@ -215,6 +330,59 @@ h1{
     list-style: none;
 }
 
+
+/* -------ANIMACIONES-------- */
+
+@keyframes llenar-barra {
+    from {
+        color: #e2eaff;
+        border: 0px solid #100b55;
+        font-size: 10px;
+    }
+
+    to {
+        color: #100b55;
+        border: 3px solid #100b55;
+        font-size: 20px;
+    }
+}
+
+@keyframes h2-header {
+    0% {
+        color: #e2eaff;
+        margin-left: 0;
+        filter: blur(5px);
+    }
+
+    50%{
+        filter: blur(3px);
+    }
+
+    100%{
+        color: #100b55;
+        margin-left: 4em;
+        filter: blur(0px);
+    }
+}
+
+@keyframes main {
+    from{
+        color: #000;
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes aparecer {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 
 
 
